@@ -9,14 +9,13 @@ import {
 import SectionHeader from './section-header';
 import { experiencesData } from '@/lib/data';
 import useSectionInView from '@/lib/hooks';
-import { Theme } from './theme-toogle';
+import { useTheme } from '@/context/theme-context';
 
 export default function Experience() {
 
   const { ref, inView } = useSectionInView('Experience', 0.3)
 
-  const localTheme : Theme | null = localStorage.theme as Theme | null
-  
+  const { theme } = useTheme();
 
   return (
     <section id='experience' ref={ref} className='scroll-mt-28 mb-28 sm:mb-40 h-auto w-full border rounded-2xl border-[#0000FE] py-8'>
@@ -31,9 +30,9 @@ export default function Experience() {
                     <React.Fragment key={idx}>
                         <VerticalTimelineElement
                             contentStyle={{
-                                background: localTheme === 'light' ? "white" : 'rgba(255, 255, 255, 0.05',
+                                background: theme === 'light' ? "white" : 'rgba(255, 255, 255, 0.05',
                                 boxShadow: 'none',
-                                border: localTheme === 'light' ? "1px solid #0000FE" : "1px solid rgba(0, 0, 0, 0.05)",
+                                border: theme === 'light' ? "1px solid #0000FE" : "1px solid rgba(0, 0, 0, 0.05)",
                                 textAlign: 'left',
                                 padding: "1.3rem 2rem"
                             }}
@@ -44,8 +43,8 @@ export default function Experience() {
                             date={exp.date}
                             icon={exp.icon}
                             iconStyle={{
-                                background: localTheme === 'light' ? 'white' : 'rgba(17, 24, 39)',
-                                border: localTheme === 'light' ? '1px solid #0000fe' : "1px solid rgba(0, 0, 0, 0.05)",
+                                background: theme === 'light' ? 'white' : 'rgba(17, 24, 39)',
+                                border: theme === 'light' ? '1px solid #0000fe' : "1px solid rgba(0, 0, 0, 0.05)",
                             }}
                         >
                             <h3 className='font-semibold capitalize'>{exp.title}</h3>
