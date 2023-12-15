@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/footer";
-import ThemeToogle, { Theme } from "@/components/theme-toogle";
+import ThemeToogle from "@/components/theme-toogle";
 import ThemeContextProvider from "@/context/theme-context";
 
 const inter = Inter({ subsets: ["latin"] });
